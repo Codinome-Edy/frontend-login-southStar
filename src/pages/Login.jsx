@@ -1,18 +1,33 @@
 import {FaUser, FaLock} from "react-icons/fa";
+import { useState } from "react";
+import "./Login.css";
 
 export default function Login(){
+
+    const[username, setUsername] = useState("");
+    const[password, setPassword] = useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        alert("Enviando os dados: " + username + " - " + password);
+    };
+
     return (
         <>
         <a href="/">Home</a>
             <div className="login.container">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h1>Entre no SouthStar</h1>
                     <div>
-                        <input type="email" placeholder="E-mail" />
+                        <input type="email" placeholder="E-mail" 
+                        /*(e.target.value) = e: evento de digitar, target: alvo da digitação, value: valor do item ou o que esta sendo digitado nele */
+                        onChange={(e) => setUsername(e.target.value)} />
                         <FaUser className="icon" />
                     </div>
                     <div>
-                        <input type="passowrd" placeholder="Senha" />
+                        <input type="passowrd" placeholder="Senha"
+                        onChange={(e) => setPassword(e.target.value)} />
                         <FaLock className="icon" />
                     </div>
 
@@ -27,7 +42,7 @@ export default function Login(){
                     <button>Entrar</button>
 
                     <div className="signup-link">
-                        <p>Não tem uma conta?</p>
+                        <p>Não tem uma conta? <a href="#">Registrar</a></p>
                     </div>
                 </form>
             </div>
