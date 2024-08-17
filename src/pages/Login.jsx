@@ -1,11 +1,11 @@
-import {FaUser, FaLock} from "react-icons/fa";
+import { FaUser, FaLock } from "react-icons/fa";
 import { useState } from "react";
 import "./Login.css";
 
-export default function Login(){
+export default function Login() {
 
-    const[username, setUsername] = useState("");
-    const[password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -15,36 +15,38 @@ export default function Login(){
 
     return (
         <>
-        <a href="/">Home</a>
-            <div className="login.container">
-                <form onSubmit={handleSubmit}>
-                    <h1>Entre no SouthStar</h1>
-                    <div>
-                        <input type="email" placeholder="E-mail" 
-                        /*(e.target.value) = e: evento de digitar, target: alvo da digitação, value: valor do item ou o que esta sendo digitado nele */
-                        onChange={(e) => setUsername(e.target.value)} />
-                        <FaUser className="icon" />
-                    </div>
-                    <div>
-                        <input type="passowrd" placeholder="Senha"
-                        onChange={(e) => setPassword(e.target.value)} />
-                        <FaLock className="icon" />
-                    </div>
+            <a href="/">Home</a>
+            <div className="login">
+                <div className="container">
+                    <form onSubmit={handleSubmit}>
+                        <h1>Entre no SouthStar</h1>
+                        <div className="input-field">
+                            <input type="email" placeholder="E-mail"
+                                /*(e.target.value) = e: evento de digitar, target: alvo da digitação, value: valor do item ou o que esta sendo digitado nele */
+                                onChange={(e) => setUsername(e.target.value)} />
+                            <FaUser className="icon" />
+                        </div>
+                        <div className="input-field">
+                            <input type="passowrd" placeholder="Senha"
+                                onChange={(e) => setPassword(e.target.value)} />
+                            <FaLock className="icon" />
+                        </div>
 
-                    <div className="recall-forget">
-                        <label>
-                            <input type="checkbox" />
-                            Lembre de mim
-                        </label>
-                        <a href="#">Esqueceu a senha?</a>
-                    </div>
+                        <div className="recall-forget">
+                            <label>
+                                <input type="checkbox" />
+                                Lembre de mim
+                            </label>
+                            <a href="#">Esqueceu a senha?</a>
+                        </div>
 
-                    <button>Entrar</button>
+                        <button>Entrar</button>
 
-                    <div className="signup-link">
-                        <p>Não tem uma conta? <a href="#">Registrar</a></p>
+                        <div className="signup-link">
+                            <p>Não tem uma conta? <a href="#">Registrar</a></p>
+                        </div>
+                    </form>
                     </div>
-                </form>
             </div>
         </>
     )
